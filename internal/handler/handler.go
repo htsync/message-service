@@ -6,9 +6,9 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
+	"github.com/htsync/message-service/internal/service"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/yourusername/message-processor/internal/service"
 	"go.uber.org/zap"
 )
 

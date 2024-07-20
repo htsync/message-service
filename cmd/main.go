@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"message-service/internal/service"
 	"net/http"
 	"os"
 	"os/signal"
@@ -14,9 +15,8 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
 
-	"github.com/yourusername/message-processor/internal/handler"
-	"github.com/yourusername/message-processor/internal/repository"
-	"github.com/yourusername/message-processor/internal/service"
+	"github.com/htsync/message-service/internal/handler"
+	"github.com/htsync/message-service/internal/repository"
 )
 
 func main() {

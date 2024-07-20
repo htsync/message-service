@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/IBM/sarama"
-	"github.com/yourusername/message-processor/internal/repository"
+	"github.com/htsync/message-service/internal/repository"
 	"go.uber.org/zap"
 )
 

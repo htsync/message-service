@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Processor</title>
+</head>
+<body>
+<h1>Message Processor</h1>
+<form id="messageForm">
+    <input type="text" id="content" name="content" placeholder="Message content" required>
+    <button type="submit">Send Message</button>
+</form>
+<h2>Statistics</h2>
+<div id="stats"></div>
+<script>
+    document.getElementById('messageForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const content = document.getElementById('content').value;
+        await fetch('/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content })
+        });
+        document.getElementById('content').value = '';
+    });
+
+    async function fetchStats() {
+        const response = await fetch('/statistics');
+        const data = await response.json();
+        document.getElementById('stats').textContent = `Processed messages count: ${data.processed_messages_count}`;
+    }
+
+    fetchStats();
+    setInterval(fetchStats, 5000);
+</script>
+</body>
+</html>
